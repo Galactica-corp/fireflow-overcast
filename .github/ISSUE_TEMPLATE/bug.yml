@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a defect in the Overcast FireFlow nodes
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Canonical development of these nodes is in FireFlow; we still track public issues here.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Node graph, network (sandbox / testnet), and commands if any.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: aztec
+    attributes:
+      label: Aztec SDK version
+      placeholder: "5.0.1"
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Logs, screenshots, related PRs.

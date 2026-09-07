@@ -1,0 +1,15 @@
+FireFlow Overcast
+Copyright 2026 PersistentAI
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file in this repository.
+
+This repository is a public Apache-2.0 snapshot of the
+`packages/fireflow-overcast` package from FireFlow
+(https://github.com/Persistent-AI/fireflow). Canonical development of these
+nodes continues in the FireFlow monorepo until that repository is public.
+
+The FireFlow engine (`@persistent-ai/fireflow-types` and the executor) is not
+included in this snapshot and remains under the Business Source License 1.1.
+
+`tsconfig.base.json` is derived from `@persistent-ai/typescript-config` (MIT).

@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: "24"
+  PNPM_VERSION: "11.15.1"
+
+jobs:
+  license:
+    name: License headers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify Apache-2.0 LICENSE and SPDX headers
+        run: bash scripts/check-license.sh
+
+  install:
+    name: Install public dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: false
+
+      - name: Install public dependencies
+        run: pnpm install
+        # @persistent-ai/fireflow-types is a peer dependency and is not
+        # published here. .npmrc sets auto-install-peers=false so this step
+        # installs Aztec / x402 packages only. Typecheck and tests require a
+        # FireFlow checkout and are not run in this workflow.

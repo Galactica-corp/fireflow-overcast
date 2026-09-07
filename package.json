@@ -1,0 +1,86 @@
+{
+  "name": "@persistent-ai/fireflow-overcast",
+  "type": "module",
+  "version": "0.30.1",
+  "private": false,
+  "description": "FireFlow graph nodes for Overcast — private stablecoin payments on Aztec",
+  "author": "PersistentAI",
+  "license": "Apache-2.0",
+  "homepage": "https://overcast.fi/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galactica-corp/fireflow-overcast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Galactica-corp/fireflow-overcast/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.15.1",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "development": "./src/index.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "development": "./src/server.ts",
+      "import": "./dist/server.js",
+      "default": "./dist/server.js"
+    },
+    "./nodes": {
+      "types": "./dist/nodes/index.d.ts",
+      "development": "./src/nodes/index.ts",
+      "import": "./dist/nodes/index.js",
+      "default": "./dist/nodes/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "deploy:local": "tsx src/__integration__/scripts/deploy-local.ts",
+    "balances:local": "tsx src/__integration__/scripts/balances-local.ts",
+    "measure:testnet-account": "tsx src/__integration__/scripts/measure-testnet-account.ts",
+    "check:license": "bash scripts/check-license.sh"
+  },
+  "peerDependencies": {
+    "@persistent-ai/fireflow-types": ">=0.30.1"
+  },
+  "dependencies": {
+    "@aztec-foundation/aztec-standards": "5.0.1",
+    "@aztec/accounts": "5.0.1",
+    "@aztec/aztec.js": "5.0.1",
+    "@aztec/bb.js": "5.0.1",
+    "@aztec/constants": "5.0.1",
+    "@aztec/noir-contracts.js": "5.0.1",
+    "@aztec/stdlib": "5.0.1",
+    "@aztec/wallet-sdk": "5.0.1",
+    "@aztec/wallets": "5.0.1",
+    "@galactica-net/x402-client": "^1.1.2",
+    "@galactica-net/x402-core": "^1.1.2",
+    "@galactica-net/x402-mechanism": "^1.1.2",
+    "@galactica-net/x402-middleware": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "reflect-metadata": "^0.2.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  }
+}
