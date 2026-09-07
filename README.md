@@ -58,16 +58,13 @@ git clone https://github.com/Galactica-corp/fireflow-overcast.git
 cd fireflow-overcast
 ```
 
-Point pnpm at the local FireFlow types package in `package.json`:
+`pnpm install` on its own succeeds: `@persistent-ai/fireflow-types` is not on npm, so [`pnpm-workspace.yaml`](pnpm-workspace.yaml) overrides it to [`stubs/fireflow-types`](stubs/fireflow-types) (a throw-on-import placeholder). That is enough to install the public Aztec and x402 packages. It is **not** enough to typecheck, test, or execute nodes.
 
-```json
-{
-  "pnpm": {
-    "overrides": {
-      "@persistent-ai/fireflow-types": "link:../fireflow/packages/fireflow-types"
-    }
-  }
-}
+To actually build, replace the override in `pnpm-workspace.yaml` with a FireFlow checkout:
+
+```yaml
+overrides:
+  '@persistent-ai/fireflow-types': link:../fireflow/packages/fireflow-types
 ```
 
 Then:

@@ -1,0 +1,4 @@
+autoInstallPeers: false
+strictPeerDependencies: false
+overrides:
+  '@persistent-ai/fireflow-types': link:./stubs/fireflow-types

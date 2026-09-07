@@ -1,0 +1,11 @@
+{
+  "name": "@persistent-ai/fireflow-types",
+  "version": "0.30.1",
+  "private": true,
+  "description": "Resolution stub so pnpm does not fetch unpublished @persistent-ai/fireflow-types from npm. Not the FireFlow types package. Replace the package.json pnpm.overrides entry with a link to a FireFlow checkout to typecheck or run tests.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  }
+}

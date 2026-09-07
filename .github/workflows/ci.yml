@@ -41,7 +41,7 @@ jobs:
 
       - name: Install public dependencies
         run: pnpm install
-        # @persistent-ai/fireflow-types is a peer dependency and is not
-        # published here. .npmrc sets auto-install-peers=false so this step
-        # installs Aztec / x402 packages only. Typecheck and tests require a
-        # FireFlow checkout and are not run in this workflow.
+        # @persistent-ai/fireflow-types is not on npm. pnpm-workspace.yaml
+        # overrides it to stubs/fireflow-types (pnpm 11 ignores package.json
+        # `pnpm.overrides` and non-registry .npmrc keys). Typecheck and tests
+        # need a real FireFlow checkout and are not run in this workflow.

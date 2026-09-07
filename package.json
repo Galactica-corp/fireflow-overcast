@@ -61,6 +61,11 @@
   "peerDependencies": {
     "@persistent-ai/fireflow-types": ">=0.30.1"
   },
+  "peerDependenciesMeta": {
+    "@persistent-ai/fireflow-types": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@aztec-foundation/aztec-standards": "5.0.1",
     "@aztec/accounts": "5.0.1",
