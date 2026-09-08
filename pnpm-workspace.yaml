@@ -2,3 +2,12 @@ autoInstallPeers: false
 strictPeerDependencies: false
 overrides:
   '@persistent-ai/fireflow-types': link:./stubs/fireflow-types
+# pnpm 11 fails the install with ERR_PNPM_IGNORED_BUILDS unless every
+# package that has a lifecycle script is listed here. These five come in
+# through @aztec/* and tsx/vitest.
+allowBuilds:
+  esbuild: true
+  leveldown: true
+  lmdb: true
+  msgpackr-extract: true
+  protobufjs: true
